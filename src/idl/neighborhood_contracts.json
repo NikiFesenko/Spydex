@@ -1,0 +1,81 @@
+{
+  "address": "BYSranfYCar3hF6fFx87N4qx4pHrPuBaajwurGnczBSR",
+  "metadata": {
+    "name": "neighborhood_contracts",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "buy_slice",
+      "discriminator": [41, 88, 58, 162, 184, 31, 81, 101],
+      "accounts": [
+        {
+          "name": "asset_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              { "kind": "const", "value": [97, 115, 115, 101, 116] },
+              { "kind": "account", "path": "asset_state.admin", "account": "AssetState" }
+            ]
+          }
+        },
+        { "name": "buyer", "writable": true, "signer": true },
+        { "name": "treasury", "writable": true },
+        { "name": "system_program", "address": "11111111111111111111111111111111" }
+      ],
+      "args": [{ "name": "amount_of_slices", "type": "u64" }]
+    },
+    {
+      "name": "initialize_asset",
+      "discriminator": [214, 153, 49, 248, 95, 248, 208, 179],
+      "accounts": [
+        {
+          "name": "asset_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              { "kind": "const", "value": [97, 115, 115, 101, 116] },
+              { "kind": "account", "path": "admin" }
+            ]
+          }
+        },
+        { "name": "admin", "writable": true, "signer": true },
+        { "name": "treasury" },
+        { "name": "system_program", "address": "11111111111111111111111111111111" }
+      ],
+      "args": [
+        { "name": "total_slices", "type": "u64" },
+        { "name": "price_per_slice", "type": "u64" }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "AssetState",
+      "discriminator": [233, 229, 132, 170, 169, 225, 98, 171]
+    }
+  ],
+  "errors": [
+    { "code": 6000, "name": "NotEnoughSlices", "msg": "Not enough slices available." },
+    { "code": 6001, "name": "ArithmeticOverflow", "msg": "Arithmetic overflow." }
+  ],
+  "types": [
+    {
+      "name": "AssetState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          { "name": "admin", "type": "pubkey" },
+          { "name": "treasury", "type": "pubkey" },
+          { "name": "total_slices", "type": "u64" },
+          { "name": "available_slices", "type": "u64" },
+          { "name": "price_per_slice", "type": "u64" },
+          { "name": "total_yield_distributed", "type": "u64" },
+          { "name": "bump", "type": "u8" }
+        ]
+      }
+    }
+  ]
+}

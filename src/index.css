@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode in Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0a;
+  --color-primary: #10B981;
+  --color-primary-foreground: #ffffff;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    @apply antialiased selection:bg-primary/20 selection:text-primary;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/60 backdrop-blur-lg border border-white/40 shadow-sm transition-all;
+  }
+  .dark .glass {
+    @apply bg-gray-900/60 border-gray-800;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-white to-gray-50;
+  }
+  .dark .card-gradient {
+    @apply bg-gradient-to-br from-gray-800 to-gray-900;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-gray-900 to-gray-500;
+  }
+  .dark .text-gradient {
+    @apply bg-gradient-to-br from-gray-100 to-gray-400;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

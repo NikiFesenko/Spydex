@@ -1,0 +1,10 @@
+{
+  "programId": "BYSranfYCar3hF6fFx87N4qx4pHrPuBaajwurGnczBSR",
+  "assetStatePda": "3wBDtQ3jiFMnGfjgEqhTf178YfMzARM7xbfKTbighAxn",
+  "adminPubkey": "2brmxJRvfE3prj7YMLHjpnQhjBBrDYMFyraXowEEqEqs",
+  "treasury": "2brmxJRvfE3prj7YMLHjpnQhjBBrDYMFyraXowEEqEqs",
+  "cluster": "devnet",
+  "totalSlices": 100,
+  "pricePerSliceLamports": 20000000,
+  "pricePerSliceSol": 0.02
+}
