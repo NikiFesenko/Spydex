@@ -1,0 +1,2 @@
+All of those file are the solana based system for community owned goods and services like Solar Panels, Rental Buildings and so on. Long story short it is a template Decentralized exchange for buying different RWA assets.
+You can run this program by just opening it in your favorite code editor and running in the bash command "npm run dev" after installing all o the required libraries using your command line(Required libraries: Anchor, Web3.js, Vite, Solana CLI, node.js)
